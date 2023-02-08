@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 const Nav = styled.header`
   padding: 1rem;
@@ -22,9 +23,15 @@ export const Navigation = () => {
   return (
     <Nav>
       <Ul>
-        <Li>Home</Li>
-        <Li>Characters</Li>
-        <Li>About</Li>
+        <Li>
+          <Link to="/">Home</Link>
+        </Li>
+        <Li>
+          <Link to="/characters">Characters</Link>
+        </Li>
+        <Li>
+          <Link to="/about">About</Link>
+        </Li>
       </Ul>
     </Nav>
   );
