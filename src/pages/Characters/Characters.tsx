@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Character } from '../../types/types';
+import { GetCharactersResponse } from '../../types/types';
 import { getCharacters } from '../../services';
-import { Preview } from '../../components';
+import { Preview, Pagination } from '../../components';
 import styled from '@emotion/styled';
 
 const Container = styled.div`
@@ -11,25 +11,29 @@ const Container = styled.div`
 `;
 
 export const Characters = () => {
-  const [characters, setCharacters] = React.useState<Character[]>([]);
+  const [response, setResponse] = React.useState<GetCharactersResponse>();
+  const [page, setPage] = React.useState(1);
 
   useEffect(() => {
     const controller = new AbortController();
 
-    getCharacters({ signal: controller.signal }).then(({ results }) => {
-      setCharacters(results);
+    getCharacters({ page, signal: controller.signal }).then((data) => {
+      setResponse(data);
     });
 
     return () => controller.abort();
-  }, []);
+  }, [page]);
 
   return (
-    <Container>
-      {characters
-        .sort((a, b) => a.name.localeCompare(b.name))
-        .map((character) => (
-          <Preview key={character.id} character={character} />
-        ))}
-    </Container>
+    <div>
+      <Container>
+        {response?.results
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((character) => (
+            <Preview key={character.id} character={character} />
+          ))}
+      </Container>
+      <Pagination pages={response?.info.pages || 0} current={page} setPage={setPage} />
+    </div>
   );
 };
