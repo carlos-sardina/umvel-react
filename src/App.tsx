@@ -1,5 +1,12 @@
+import { main } from './themes/main';
+import { ThemeProvider } from './themes/ThemeProvider';
+
 function App() {
-  return <h1>app</h1>;
+  return (
+    <ThemeProvider theme={main}>
+      <span>app</span>
+    </ThemeProvider>
+  );
 }
 
 export default App;
