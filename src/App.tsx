@@ -8,7 +8,7 @@ import { Home, Characters, About, Details } from './pages';
 const AppContainer = styled.div`
   background-color: ${(props) => props.theme.colors.black};
   color: #fff;
-  padding-bottom: 40px;
+  padding-bottom: 2.5rem;
 `;
 
 function App() {

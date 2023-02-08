@@ -13,7 +13,7 @@ const Container = styled.div`
 const Title = styled.h1<{ color: string }>`
   font-size: 2.5rem;
   color: ${({ color }) => color};
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 `;
 
 const Description = styled.p<{ color: string }>`

@@ -19,7 +19,7 @@ const Input = styled.input<{ color: string; background: string; border: string }
   color: ${({ color }) => color};
   border: none;
   padding: 0.5rem;
-  border-bottom: 1px solid ${({ border }) => border};
+  border-bottom: 0.063rem solid ${({ border }) => border};
   font-size: 1rem;
   font-weight: 700;
 

@@ -13,28 +13,28 @@ const Container = styled(Link)<{ color: string }>`
   flex-direction: column;
   align-items: center;
   background-color: ${({ color }) => color};
-  margin: 10px;
-  padding: 10px;
+  margin: 0.625rem;
+  padding: 0.625rem;
   text-decoration: none;
 `;
 
 const Name = styled.span<{ color: string }>`
   font-weight: 700;
   font-size: 1.3rem;
-  margin: 10px 0 15px 0;
+  margin: 0.625rem 0 0.938rem 0;
   color: ${({ color }) => color};
 `;
 
 const Image = styled.img`
-  width: 300px;
-  height: 300px;
+  width: 18.75rem;
+  height: 18.75rem;
   max-width: 100%;
 `;
 
 const Species = styled.span<{ color: string }>`
   font-weight: 400;
   font-size: 1rem;
-  margin: 10px 0 0 0;
+  margin: 0.625rem 0 0 0;
   color: ${({ color }) => color};
 `;
 
