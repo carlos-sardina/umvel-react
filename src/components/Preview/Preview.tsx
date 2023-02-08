@@ -1,21 +1,24 @@
 import React from 'react';
 import { Character } from '../../types/types';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
+import { useTheme } from '@emotion/react';
 
 interface PreviewProps {
   character: Character;
 }
 
-const Container = styled.div`
+const Container = styled(Link)<{ color: string }>`
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   background-color: #3ccaff;
   margin: 10px;
   padding: 10px;
+  text-decoration: none;
 `;
 
-const Name = styled.span`
+const Name = styled.span<{ color: string }>`
   font-weight: 700;
   font-size: 1.3rem;
   margin: 10px 0 15px 0;
@@ -28,7 +31,7 @@ const Image = styled.img`
   max-width: 100%;
 `;
 
-const Species = styled.span`
+const Species = styled.span<{ color: string }>`
   font-weight: 400;
   font-size: 1rem;
   margin: 10px 0 0 0;
@@ -36,11 +39,13 @@ const Species = styled.span`
 `;
 
 export const Preview = ({ character }: PreviewProps) => {
+  const { colors } = useTheme();
+
   return (
-    <Container>
-      <Name>{character.name}</Name>
+    <Container to={`/characters/${character.id}`} color={colors.cyan}>
+      <Name color={colors.purple}>{character.name}</Name>
       <Image src={character.image} alt={character.name} />
-      <Species>{character.species}</Species>
+      <Species color={colors.pink}>{character.species}</Species>
     </Container>
   );
 };
