@@ -1,17 +1,19 @@
 # Rick and Morty
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Setup
 
 Once you have the repo downloaded in your computer, navigate with the terminal inside the root folder and run:
 
 ### `npm start`
 
-This command will run the app in development mode.\
+Your computer will download the required dependencies. Then run:
+
+### `npm start`
+
+This command will run the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
+The page will reload if you make edits.
 
 ## Notes
 
