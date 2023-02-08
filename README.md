@@ -4,7 +4,7 @@
 
 Once you have the repo downloaded in your computer, navigate with the terminal inside the root folder and run:
 
-### `npm start`
+### `npm install`
 
 Your computer will download the required dependencies. Then run:
 
