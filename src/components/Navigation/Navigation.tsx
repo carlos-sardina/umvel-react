@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { useTheme } from '@emotion/react';
 
 const Nav = styled.header`
-  padding: 1rem;
+  padding: 1.5rem;
 `;
 
 const Ul = styled.ul`
@@ -11,26 +12,35 @@ const Ul = styled.ul`
   list-style: none;
 `;
 
-const Li = styled.li`
+const Li = styled(Link)`
   margin-right: 1rem;
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.purple};
+  font-size: 1.5rem;
 
   &:last-of-type {
     margin-right: 0;
   }
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const Navigation = () => {
+  const theme = useTheme();
+
   return (
     <Nav>
       <Ul>
-        <Li>
-          <Link to="/">Home</Link>
+        <Li to="/" theme={theme}>
+          Home
         </Li>
-        <Li>
-          <Link to="/characters">Characters</Link>
+        <Li to="/characters" theme={theme}>
+          Characters
         </Li>
-        <Li>
-          <Link to="/about">About</Link>
+        <Li to="/about" theme={theme}>
+          About
         </Li>
       </Ul>
     </Nav>
