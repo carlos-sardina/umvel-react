@@ -25,9 +25,11 @@ export const Characters = () => {
 
   return (
     <Container>
-      {characters.map((character) => (
-        <Preview key={character.id} character={character} />
-      ))}
+      {characters
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((character) => (
+          <Preview key={character.id} character={character} />
+        ))}
     </Container>
   );
 };
