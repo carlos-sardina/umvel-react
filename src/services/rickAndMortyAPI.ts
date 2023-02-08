@@ -13,8 +13,15 @@ export const getCharacters = async ({ page = 1, signal }: GetCharactersProps) =>
   return data;
 };
 
-export const getCharacter = async (id: number) => {
-  const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
+interface GetCharacterProps {
+  id: string;
+  signal: AbortSignal;
+}
+
+export const getCharacter = async ({ id, signal }: GetCharacterProps) => {
+  const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`, {
+    signal,
+  });
   const data: Character = await response.json();
   return data;
 };
