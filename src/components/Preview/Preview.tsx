@@ -12,7 +12,7 @@ const Container = styled(Link)<{ color: string }>`
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  background-color: #3ccaff;
+  background-color: ${({ color }) => color};
   margin: 10px;
   padding: 10px;
   text-decoration: none;
@@ -22,7 +22,7 @@ const Name = styled.span<{ color: string }>`
   font-weight: 700;
   font-size: 1.3rem;
   margin: 10px 0 15px 0;
-  color: #6b47fe;
+  color: ${({ color }) => color};
 `;
 
 const Image = styled.img`
@@ -35,7 +35,7 @@ const Species = styled.span<{ color: string }>`
   font-weight: 400;
   font-size: 1rem;
   margin: 10px 0 0 0;
-  color: #fe3dbc;
+  color: ${({ color }) => color};
 `;
 
 export const Preview = ({ character }: PreviewProps) => {

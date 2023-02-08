@@ -12,10 +12,10 @@ const Ul = styled.ul`
   list-style: none;
 `;
 
-const Li = styled(Link)`
+const Li = styled(Link)<{ color: string }>`
   margin-right: 1rem;
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.purple};
+  color: ${({ color }) => color};
   font-size: 1.5rem;
 
   &:last-of-type {
@@ -28,18 +28,18 @@ const Li = styled(Link)`
 `;
 
 export const Navigation = () => {
-  const theme = useTheme();
+  const { colors } = useTheme();
 
   return (
     <Nav>
       <Ul>
-        <Li to="/" theme={theme}>
+        <Li to="/" color={colors.purple}>
           Home
         </Li>
-        <Li to="/characters" theme={theme}>
+        <Li to="/characters" color={colors.purple}>
           Characters
         </Li>
-        <Li to="/about" theme={theme}>
+        <Li to="/about" color={colors.purple}>
           About
         </Li>
       </Ul>
