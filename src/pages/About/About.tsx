@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { useTheme } from '@emotion/react';
 
 const Container = styled.div`
   display: flex;
@@ -9,26 +10,37 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Disclaimer = styled.span`
-  margin: 30px 0;
+const Title = styled.h1<{ color: string }>`
+  color: ${({ color }) => color};
 `;
 
-const Ul = styled.ul`
+const Description = styled.h4<{ color: string }>`
+  color: ${({ color }) => color};
+`;
+
+const Disclaimer = styled.span<{ color: string }>`
+  margin: 1.875rem 0;
+  color: ${({ color }) => color};
+`;
+
+const Ul = styled.ul<{ color: string }>`
+  color: ${({ color }) => color};
   li {
-    margin: 5px 0;
+    margin: 0.313rem 0;
   }
 `;
 
 export const About = () => {
+  const { colors } = useTheme();
   return (
     <Container>
-      <h1>By Carlos Sardina</h1>
-      <h5>Rick and Morty dashboard</h5>
-      <Disclaimer>
+      <Title color={colors.purple}>By Carlos Sardina</Title>
+      <Description color={colors.purple}>Rick and Morty dashboard</Description>
+      <Disclaimer color={colors.pink}>
         As you may see, the main effort is on the characters list / filtering / fetching, home and
         about will remain as simple as possible in order to focus on the main functionality.
       </Disclaimer>
-      <Ul>
+      <Ul color={colors.cyan}>
         <li>React v18</li>
         <li>Emotion for styling components</li>
         <li>Prettier for formatting</li>
